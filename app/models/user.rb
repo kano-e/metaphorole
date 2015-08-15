@@ -1,6 +1,7 @@
 class User < ActiveRecord::Base
   has_many :skill_sets
-  has_many :gave_skill_sets
+  has_many :my_skill_sets, -> { mine }
+  has_many :gave_skill_sets, -> { given }
 
   # あるユーザに対するスキル評価
   #

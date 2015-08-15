@@ -6,6 +6,9 @@ class SkillSet < ActiveRecord::Base
 
   after_create :call_evaluate_ability
 
+  scope :mine, -> { where(user: arel_table[:created_by]) }
+  scope :given, -> { where.not(user: arel_table[:created_by]) }
+
   private
 
   def call_evaluate_ability
