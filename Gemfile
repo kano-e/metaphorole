@@ -32,5 +32,6 @@ group :development, :test do
   gem 'pry-byebug'
   gem 'pry-rails'
   gem 'tapp'
+  gem 'yard'
 end
 
