@@ -2,6 +2,8 @@ class User < ActiveRecord::Base
   has_many :skill_sets
   has_many :my_skill_sets, -> { mine }
   has_many :gave_skill_sets, -> { given }
+  has_many :abilities
+  has_one :current_ability, -> { newer }
 
   # あるユーザに対するスキル評価
   #
