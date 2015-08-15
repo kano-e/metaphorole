@@ -13,4 +13,8 @@ class User < ActiveRecord::Base
       skills: skills,
     )
   end
+
+  # 能力値の集計を行う
+  def evaluate_ability
+  end
 end
