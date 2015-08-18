@@ -11,11 +11,16 @@ class SkillSet < ActiveRecord::Base
   scope :given, -> { where.not(user: arel_table[:created_by]) }
 
   def evaluate_ability
-    abilities = %w(attack_point defence_point heal_point enchant_point)
-    columns = abilities.map{|name| Skill.arel_table[name].sum.as(name) }
+    ability_names = %w(attack_point defence_point heal_point enchant_point)
+    columns = ability_names.map{|name| Skill.arel_table[name].sum.as(name) }
     result = Skill.select(columns).where(id: skills.map(&:id)).take
+    return true unless result
 
-    self.attributes = result.attributes.slice(*abilities) if result
+    abilities = result.attributes.slice(*ability_names)
+    max_value = BigDecimal(abilities.values.max)
+    abilities.each do |ability, value|
+      self[ability] = (BigDecimal(value * 100) / max_value).to_i
+    end
     true
   end
 
