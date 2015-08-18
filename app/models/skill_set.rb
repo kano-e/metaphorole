@@ -7,8 +7,9 @@ class SkillSet < ActiveRecord::Base
   before_save :evaluate_ability
   after_save :call_evaluate_ability_for_user
 
-  scope :mine, -> { where(user: arel_table[:created_by]) }
-  scope :given, -> { where.not(user: arel_table[:created_by]) }
+  scope :mine, -> { where(user_id: arel_table[:created_by_id]) }
+  scope :given, -> { where.not(user_id: arel_table[:created_by_id]) }
+  scope :newer, -> { order(id: :desc) }
 
   def evaluate_ability
     ability_names = %w(attack_point defence_point heal_point enchant_point)
@@ -17,9 +18,13 @@ class SkillSet < ActiveRecord::Base
     return true unless result
 
     abilities = result.attributes.slice(*ability_names)
-    max_value = BigDecimal(abilities.values.max)
+    max_value = BigDecimal(abilities.values.max.to_i)
     abilities.each do |ability, value|
-      self[ability] = (BigDecimal(value * 100) / max_value).to_i
+      if value.blank? || value.zero? || max_value.zero?
+        self[ability] = 0
+      else
+        self[ability] = (BigDecimal(value * 100) / max_value).to_i
+      end
     end
     true
   end
@@ -27,6 +32,6 @@ class SkillSet < ActiveRecord::Base
   private
 
   def call_evaluate_ability_for_user
-    user.call_evaluate_ability if user
+    user.evaluate_ability if user
   end
 end
