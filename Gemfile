@@ -4,6 +4,7 @@ gem 'rails', '4.2.3'
 gem 'pg'
 
 group :development, :test do
+  gem 'annotate', github: 'ctran/annotate_models'
   gem 'byebug'
   gem 'pry-byebug'
   gem 'pry-rails'
