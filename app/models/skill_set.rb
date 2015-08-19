@@ -1,3 +1,29 @@
+# ## Schema Information
+#
+# Table name: `skill_sets`
+#
+# ### Columns
+#
+# Name                 | Type               | Attributes
+# -------------------- | ------------------ | ---------------------------
+# **`id`**             | `integer`          | `not null, primary key`
+# **`created_at`**     | `datetime`         | `not null`
+# **`updated_at`**     | `datetime`         | `not null`
+# **`user_id`**        | `integer`          |
+# **`created_by_id`**  | `integer`          |
+# **`attack_point`**   | `integer`          | `default(0), not null`
+# **`defence_point`**  | `integer`          | `default(0), not null`
+# **`heal_point`**     | `integer`          | `default(0), not null`
+# **`enchant_point`**  | `integer`          | `default(0), not null`
+#
+# ### Indexes
+#
+# * `index_skill_sets_on_created_by_id`:
+#     * **`created_by_id`**
+# * `index_skill_sets_on_user_id`:
+#     * **`user_id`**
+#
+
 class SkillSet < ActiveRecord::Base
   belongs_to :user
   belongs_to :created_by, class_name: 'User'

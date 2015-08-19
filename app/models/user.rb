@@ -1,3 +1,16 @@
+# ## Schema Information
+#
+# Table name: `users`
+#
+# ### Columns
+#
+# Name              | Type               | Attributes
+# ----------------- | ------------------ | ---------------------------
+# **`id`**          | `integer`          | `not null, primary key`
+# **`created_at`**  | `datetime`         | `not null`
+# **`updated_at`**  | `datetime`         | `not null`
+#
+
 class User < ActiveRecord::Base
   has_many :skill_sets
   has_many :my_skill_sets, -> { mine }, class_name: 'SkillSet'
