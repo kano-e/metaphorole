@@ -9,6 +9,7 @@
 # **`id`**             | `integer`          | `not null, primary key`
 # **`created_at`**     | `datetime`         | `not null`
 # **`updated_at`**     | `datetime`         | `not null`
+# **`label`**          | `string`           | `not null`
 # **`attack_point`**   | `integer`          | `default(0), not null`
 # **`defence_point`**  | `integer`          | `default(0), not null`
 # **`heal_point`**     | `integer`          | `default(0), not null`

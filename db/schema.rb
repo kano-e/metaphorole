@@ -56,6 +56,7 @@ ActiveRecord::Schema.define(version: 20150815090127) do
   create_table "skills", force: :cascade do |t|
     t.datetime "created_at",                null: false
     t.datetime "updated_at",                null: false
+    t.string   "label",                     null: false
     t.integer  "attack_point",  default: 0, null: false
     t.integer  "defence_point", default: 0, null: false
     t.integer  "heal_point",    default: 0, null: false
