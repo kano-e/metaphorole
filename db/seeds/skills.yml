@@ -1,0 +1,72 @@
+- label: プロダクトマネージメント
+  attack_point: 0
+  defence_point: 0
+  heal_point: 0
+  enchant_point: 3
+
+- label: 実現可能性調査
+  attack_point: 1
+  defence_point: 0
+  heal_point: 1
+  enchant_point: 1
+
+- label: 要求分析
+  attack_point: 0
+  defence_point: 0
+  heal_point: 0
+  enchant_point: 3
+
+- label: 情報共有
+  attack_point: 0
+  defence_point: 0
+  heal_point: 1
+  enchant_point: 2
+
+- label: システム設計
+  attack_point: 1
+  defence_point: 1
+  heal_point: 0
+  enchant_point: 1
+
+- label: 実装
+  attack_point: 3
+  defence_point: 0
+  heal_point: 0
+  enchant_point: 0
+
+- label: テスト
+  attack_point: 0
+  defence_point: 3
+  heal_point: 0
+  enchant_point: 0
+
+- label: チューニング
+  attack_point: 1
+  defence_point: 2
+  heal_point: 0
+  enchant_point: 0
+
+- label: 障害対応
+  attack_point: 0
+  defence_point: 2
+  heal_point: 1
+  enchant_point: 0
+
+- label: 技術導入
+  attack_point: 0
+  defence_point: 0
+  heal_point: 3
+  enchant_point: 0
+
+- label: 情報収集
+  attack_point: 0
+  defence_point: 0
+  heal_point: 2
+  enchant_point: 1
+
+- label: 監視
+  attack_point: 0
+  defence_point: 1
+  heal_point: 2
+  enchant_point: 0
+
