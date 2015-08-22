@@ -3,6 +3,8 @@ source 'https://rubygems.org'
 gem 'rails', '4.2.3'
 gem 'pg'
 
+gem 'authlogic'
+
 group :development, :test do
   gem 'annotate', github: 'ctran/annotate_models'
   gem 'byebug'
