@@ -1,0 +1,16 @@
+development:
+  base_url: "http://lvh.me"
+  callback_path: '/callback'
+
+test:
+  base_url: "http://lvh.me"
+  callback_path: '/callback'
+
+staging:
+  base_url: "http://lvh.me"
+  callback_path: '/callback'
+
+production:
+  base_url: "http://lvh.me"
+  callback_path: '/callback'
+

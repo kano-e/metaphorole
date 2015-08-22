@@ -4,14 +4,18 @@
 #
 # ### Columns
 #
-# Name              | Type               | Attributes
-# ----------------- | ------------------ | ---------------------------
-# **`id`**          | `integer`          | `not null, primary key`
-# **`created_at`**  | `datetime`         | `not null`
-# **`updated_at`**  | `datetime`         | `not null`
+# Name                     | Type               | Attributes
+# ------------------------ | ------------------ | ---------------------------
+# **`id`**                 | `integer`          | `not null, primary key`
+# **`created_at`**         | `datetime`         | `not null`
+# **`updated_at`**         | `datetime`         | `not null`
+# **`persistence_token`**  | `string`           |
 #
 
 class User < ActiveRecord::Base
+  acts_as_authentic
+  has_many :accounts
+
   has_many :skill_sets
   has_many :my_skill_sets, -> { mine }, class_name: 'SkillSet'
   has_many :gave_skill_sets, -> { given }, class_name: 'SkillSet'
