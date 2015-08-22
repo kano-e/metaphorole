@@ -34,4 +34,23 @@ class Account < ActiveRecord::Base
 
   scope :by, ->(provider_name){ where(provider: provider_name) }
   scope :by_uid, ->(provider_name, uid){ by(provider_name).where(uid: uid) }
+
+  # 認証情報からAccountインスタンスを特定する
+  #
+  # @param [AuthHash] auth
+  #   see https://github.com/intridea/omniauth/wiki/Auth-Hash-Schema
+  # @return [Account] 認証したAccountインスタンス(保存されていない)
+  def self.authenticate(auth)
+    by_uid(auth.provider, auth.uid).first_or_initialize do |a|
+      a.token = auth.credentials.token
+      a.secret = auth.credentials.secret
+      a.nickname = auth.info.nickname
+      a.name = auth.info.name
+      a.image_url = auth.info.image
+      a.profile_url = auth.info.urls.fetch(auth.provider.to_s.camelize)
+      if auth.credentials.expires_at
+        a.expires_at = Time.zone.at(auth.credentials.expires_at)
+      end
+    end
+  end
 end
