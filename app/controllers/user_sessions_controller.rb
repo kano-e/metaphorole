@@ -22,4 +22,8 @@ class UserSessionsController < ApplicationController
       account.save!
     end
   end
+
+  def destroy
+    current_user_session.destroy
+  end
 end
