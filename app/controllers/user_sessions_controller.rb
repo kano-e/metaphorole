@@ -21,6 +21,8 @@ class UserSessionsController < ApplicationController
       account.build_user
       account.save!
     end
+
+    redirect_to Frontend.callback
   end
 
   def destroy
