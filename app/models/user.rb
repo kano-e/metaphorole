@@ -4,11 +4,12 @@
 #
 # ### Columns
 #
-# Name              | Type               | Attributes
-# ----------------- | ------------------ | ---------------------------
-# **`id`**          | `integer`          | `not null, primary key`
-# **`created_at`**  | `datetime`         | `not null`
-# **`updated_at`**  | `datetime`         | `not null`
+# Name                     | Type               | Attributes
+# ------------------------ | ------------------ | ---------------------------
+# **`id`**                 | `integer`          | `not null, primary key`
+# **`created_at`**         | `datetime`         | `not null`
+# **`updated_at`**         | `datetime`         | `not null`
+# **`persistence_token`**  | `string`           |
 #
 
 class User < ActiveRecord::Base
