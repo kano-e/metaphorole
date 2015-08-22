@@ -31,4 +31,7 @@
 
 class Account < ActiveRecord::Base
   belongs_to :user
+
+  scope :by, ->(provider_name){ where(provider: provider_name) }
+  scope :by_uid, ->(provider_name, uid){ by(provider_name).where(uid: uid) }
 end

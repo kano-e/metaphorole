@@ -14,6 +14,7 @@
 
 class User < ActiveRecord::Base
   acts_as_authentic
+  has_many :accounts
 
   has_many :skill_sets
   has_many :my_skill_sets, -> { mine }, class_name: 'SkillSet'
