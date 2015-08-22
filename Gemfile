@@ -6,6 +6,7 @@ gem 'pg'
 gem 'authlogic'
 gem 'omniauth-facebook'
 gem 'omniauth-twitter'
+gem 'settingslogic'
 
 group :development, :test do
   gem 'annotate', github: 'ctran/annotate_models'
