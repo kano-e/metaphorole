@@ -13,6 +13,8 @@
 #
 
 class User < ActiveRecord::Base
+  acts_as_authentic
+
   has_many :skill_sets
   has_many :my_skill_sets, -> { mine }, class_name: 'SkillSet'
   has_many :gave_skill_sets, -> { given }, class_name: 'SkillSet'
