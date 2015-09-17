@@ -2,3 +2,5 @@ WIP: Metaphorole
 =================
 
 :warning: `rake db:migrate:reset` 注意
+
+能力値的な何か。
